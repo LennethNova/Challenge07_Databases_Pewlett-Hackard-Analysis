@@ -325,3 +325,18 @@ INNER JOIN titles AS t
 ON (de.emp_no = t.emp_no)
 WHERE (employees.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY emp_no;
+
+-- Employee count by department number
+SELECT DISTINCT title,
+COUNT(title)
+FROM unique_titles
+GROUP BY title
+ORDER BY COUNT(title) DESC;
+
+-- CHeck the amount retiring
+SELECT COUNT(emp_no) AS Total_retiring
+FROM unique_titles;
+
+-- Mentorship elegible
+SELECT COUNT(emp_no) AS mentorship
+FROM mentorship_eligibilty;
